@@ -27,14 +27,14 @@ export default function Home(props) {
           Seu <span className="bg-gradient text-transparent bg-clip-text">duo</span> está aqui
         </h1>
 
-        {/* ALL GAMES 
+        {/* ALL GAMES */}
         <div className="overflow-x-auto flex gap-2 w-full mt-5">
           {
             props.games.map((game) => {
               return <GameBanner name={game.name} bannerUrl={game.bannerUrl} id={game.id} ads={game._count.ads} key={game.id} />
             })
           }
-        </div>*/}
+        </div>
         
         <CreateAdBanner />
       </main>
@@ -42,8 +42,8 @@ export default function Home(props) {
   )
 }
 
-/*export async function getServerSideProps() {
-  const response = await fetch('http://localhost:3000/api/games')
+export async function getServerSideProps() {
+  const response = await fetch(`${process.env.WEB_URL}/api/games`)
   const games = await response.json()
 
   return {
@@ -51,4 +51,4 @@ export default function Home(props) {
       games
     }
   }
-}*/
+}
