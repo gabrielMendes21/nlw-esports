@@ -12,8 +12,11 @@ export function CreateAdModal(props) {
   const [ useVoiceChannel, setUseVoiceChannel ] = useState(false)
 
   function fetchGamesAPI() {
-    axios('http://localhost:3000/api/games')
-      .then(response => setGames(response.data))
+    /*axios('http://localhost:3000/api/games')
+      .then(response => setGames(response.data))*/
+    fetch('http://localhost:3000/api/games')
+      .then(response => response.json())
+      .then(data => setGames(data))
   }
 
   useEffect(fetchGamesAPI, [])
