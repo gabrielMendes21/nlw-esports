@@ -12,11 +12,8 @@ export function CreateAdModal(props) {
   const [ useVoiceChannel, setUseVoiceChannel ] = useState(false)
 
   function fetchGamesAPI() {
-    /*axios('http://localhost:3000/api/games')
-      .then(response => setGames(response.data))*/
-    fetch('http://localhost:3000/api/games')
-      .then(response => response.json())
-      .then(data => setGames(data))
+    axios(`../api/games`)
+      .then(response => setGames(response.data))
   }
 
   useEffect(fetchGamesAPI, [])
@@ -28,7 +25,7 @@ export function CreateAdModal(props) {
     const data = Object.fromEntries(formData)
 
     try {
-      await axios.post(`http://localhost:3000/api/games/${data.game}/ads`, {
+      await axios.post(`../api/games/${data.game}/ads`, {
         userName: data.userName,
         yearsPlaying: Number(data.yearsPlaying),
         discord: data.discord,
