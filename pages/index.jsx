@@ -24,7 +24,7 @@ export default function Home(props) {
         />
 
         <h1 className="text-[2rem] md:text-[3rem] text-center text-white font-black mt-14">
-          Seu <span className="bg-gradient text-transparent bg-clip-text">duo</span> está aqui
+          Seu <span className="text-violet-500">&lt;</span>duo<span className="text-violet-500">/&gt;</span> está aqui
         </h1>
 
         {/* ALL GAMES */}
@@ -43,8 +43,8 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const response = await fetch(`${process.env.WEB_URL}/api/games`)
-  const games = await response.json()
+  const response = await axios(`${process.env.WEB_URL}/api/games`)
+  const games = await response.data
 
   return {
     props: {
