@@ -17,4 +17,4 @@ You can create an ad looking for someone to play a specific game.
 * Changed the Database service from SQLite to MongoDB
 * Added NextJS framework
 
-You can see the application here: <a href="https://nlw-esports-teal-theta.vercel.app/" target="_blank>gabrielmendes21.github.io/counter/</a>
+You can see the application here: <a href="https://nlw-esports-teal-theta.vercel.app/" target="_blank">gabrielmendes21.github.io/counter/</a>
