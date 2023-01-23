@@ -19,7 +19,7 @@ export default function Home(props) {
           width={224}
           height={224} 
           alt="" 
-          className="w-56 md:w-72 lg:w-96" 
+          className="md:w-72 lg:w-96" 
           quality={100}
         />
 
