@@ -25,10 +25,17 @@ export default function GameAds({ ads, game }) {
                     <div className="border-violet-500 border-[5px] w-full h-40 object-cover mt-8 rounded-lg flex items-center justify-center">
                         <h1 className="text-2xl md:text-4xl text-white font-black">{game.name}</h1>
                     </div>
-                    <p className="text-zinc-400 mt-4">Conecte-se e começe a jogar!</p>
-
-                    <div className="overflow-x-auto flex gap-4 w-full mt-2">
+                    {
+                        ads.length === 0 ?
+                        '' :
+                        <p className="text-zinc-400 mt-4">
+                            Conecte-se e começe a jogar!
+                        </p>
+                    }
+                    <div className="overflow-x-auto flex overflow-y-hidden gap-4 w-full mt-2">
                         {
+                            ads.length === 0 ?
+                            <span className="text-white/60 font-bold text-xl lg:text-4xl mt-14">Este game ainda não possui nenhum anúncio :(</span> :
                             ads.map(ad => {
                                 return (
                                     <Ad
