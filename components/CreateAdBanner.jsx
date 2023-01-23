@@ -28,7 +28,7 @@ export function CreateAdBanner() {
         {/* Modal trigger */}
         <button className="px-3 py-3 text-[0.8rem] bg-violet-500 rounded text-white font-semibold hover:bg-violet-600 transition-colors flex gap-1 items-center mt-3" onClick={handleOpenModal}>
         <MagnifyingGlassPlus size={30} /> 
-        Publicar anúncio
+          Publicar anúncio
         </button>
 
         <Modal 

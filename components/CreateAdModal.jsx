@@ -1,4 +1,3 @@
-// IMPORT
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Check, GameController } from 'phosphor-react'
@@ -43,7 +42,7 @@ export function CreateAdModal(props) {
 
   return (
     // Modal
-    <div className='fixed bg-[#2A2634] py-7 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg  shadow-lg shadow-black/25'>
+    <div className='fixed bg-[#2A2634] py-7 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-lg shadow-black/25'>
       <h2 className="text-white font-black text-xl lg:text-2xl">
         Publique um anúncio
       </h2>
