@@ -2,6 +2,7 @@ import axios from "axios"
 import Head from 'next/head'
 import Image from 'next/image'
 import Ad from "../components/GameAd"
+import convertNumbersToWeekDays from "../utils/convert-numbers-to-week-days"
 
 export default function GameAds({ ads, game }) {
     return (
@@ -42,7 +43,7 @@ export default function GameAds({ ads, game }) {
                                         key={ad.id}
                                         userName={ad.userName}
                                         yearsPlaying={ad.yearsPlaying}
-                                        weekDays={ad.weekDays}
+                                        weekDays={convertNumbersToWeekDays(ad.weekDays)}
                                         useVoiceChannel={ad.useVoiceChannel ? 'Sim' : 'Não'}
                                         discord={ad.discord}
                                     />
