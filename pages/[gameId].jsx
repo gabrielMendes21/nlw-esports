@@ -44,6 +44,7 @@ export default function GameAds({ ads, game }) {
                                         yearsPlaying={ad.yearsPlaying}
                                         weekDays={ad.weekDays}
                                         useVoiceChannel={ad.useVoiceChannel ? 'Sim' : 'Não'}
+                                        discord={ad.discord}
                                     />
                                 )
                             })

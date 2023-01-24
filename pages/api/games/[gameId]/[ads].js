@@ -40,6 +40,7 @@ export default async function handler(req,res) {
                 yearsPlaying: true,
                 hourStart: true,
                 hourEnd: true,
+                discord: true
             },
             where: {
                 gameId: gameId  
