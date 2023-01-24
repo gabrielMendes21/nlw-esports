@@ -33,7 +33,9 @@ export function CreateAdModal(props) {
         hourEnd: data.hourEnd,
         useVoiceChannel: useVoiceChannel
       })
-        .then(response => alert(`${response.data}`))
+        .then(response => {
+          alert(`${response.data}`)
+        })
     } catch(err) {
       console.error(err)
       alert("Erro ao criar anúncio :( Tente novamente mais tarde")
@@ -209,7 +211,7 @@ export function CreateAdModal(props) {
           <button 
             onClick={props.closeModalFunction} 
             className="h-12 px-5 rounded-md bg-zinc-500 hover:bg-zinc-600 transition font-semibold"
-            type='reset'
+            type='button'
           >
             Cancelar
           </button>
