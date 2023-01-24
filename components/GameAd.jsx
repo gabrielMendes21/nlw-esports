@@ -20,7 +20,7 @@ export default function Ad(props) {
                 <span className="text-white font-bold">{props.userName}</span>
 
                 <span className="text-zinc-400 block">Tempo de jogo</span>
-                <span className="text-white font-bold">{props.yearsPlaying} anos</span>
+                <span className="text-white font-bold">{props.yearsPlaying} ano(s)</span>
 
                 <span className="text-zinc-400 block">Disponibilidade</span>
                 <span className="text-white font-bold">{props.weekDays}</span>

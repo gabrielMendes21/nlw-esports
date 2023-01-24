@@ -1,3 +1,8 @@
+// Ex
+// Arg => ['5', '4', '0', '3', '1', '2', '6']
+// OrderedArray => ['0', '1', '2', '3', '4', '5', '6']
+// WeekDays => ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
+
 export default function convertNumbersToWeekDays(stringArray) {
     const orderedArray = stringArray.sort()
     const weekDays = stringArray.map(day => {
