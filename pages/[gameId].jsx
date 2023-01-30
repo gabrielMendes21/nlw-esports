@@ -1,8 +1,11 @@
-import axios from "axios"
 import Head from 'next/head'
 import Image from 'next/image'
 import Ad from "../components/GameAd"
 import convertNumbersToWeekDays from "../utils/convert-numbers-to-week-days"
+import { PrismaClient } from ".prisma/client"
+import { convertMinutesToHourString } from "../utils/convert-minutes-to-hour-string"
+
+const prisma = new PrismaClient()
 
 export default function GameAds({ ads, game }) {
     return (
@@ -58,8 +61,7 @@ export default function GameAds({ ads, game }) {
 }
 
 export async function getStaticPaths() {
-    const response = await axios(`${process.env.WEB_URL}/api/games`)
-    const games = await response.data
+    const games = await prisma.game.findMany()
     
     const paths = games.map(game => {
         return {
@@ -75,16 +77,40 @@ export async function getStaticPaths() {
     }
 }
 
+
 export async function getStaticProps({ params }) { 
     let ads, game
 
     await Promise.all([
-        await axios(`${process.env.WEB_URL}/api/games/${params.gameId}/ads`),
-        await axios(`${process.env.WEB_URL}/api/games`)
+        await prisma.ad.findMany({
+            select: {
+                id: true,
+                userName: true,
+                weekDays: true,
+                useVoiceChannel: true,
+                yearsPlaying: true,
+                hourStart: true,
+                hourEnd: true,
+                discord: true
+            },
+            where: {
+                gameId: {
+                    equals: params.gameId
+                }
+            }
+        }),
+        await prisma.game.findMany()
     ])
         .then(responses => {
-            ads = responses[0].data
-            game = responses[1].data.filter(game => game.id === params.gameId)
+            ads = responses[0].map(ad => {
+                return {
+                    ...ad,
+                    weekDays: ad.weekDays.split(','),
+                    hourStart: convertMinutesToHourString(ad.hourStart),
+                    hourEnd: convertMinutesToHourString(ad.hourEnd)
+                }
+            })
+            game = responses[1].filter(game => game.id === params.gameId)
         })
         .catch(err => console.log(err))
 
@@ -92,6 +118,7 @@ export async function getStaticProps({ params }) {
         props: {
             ads, 
             game: game[0]
-        }
+        },
+        revalidate: 30
     }
 }

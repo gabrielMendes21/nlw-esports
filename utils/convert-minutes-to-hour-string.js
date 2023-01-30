@@ -11,4 +11,4 @@ export function convertMinutesToHourString(minutesAmount) {
     const hoursAmount = hours.padStart(2, '0') + ":" + minutes.padStart(2, '0')
     
     return hoursAmount
-  }
+}
