@@ -1,7 +1,7 @@
 # NLW eSports
 This is a project made by RocketSeat
 
-> Status: finished
+> Status: finished ✔️
 
 <br>
 
