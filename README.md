@@ -18,4 +18,4 @@ You can create an ad looking for someone to play a specific game.
 * Added NextJS framework
 * Deployed the application in Vercel
 
-You can see the application here: <a href="https://nlw-esports-teal-theta.vercel.app/" target="_blank">https://nlw-esports-teal-theta.vercel.app/</a>
+You can see the application here: <a href="https://gabriel-nlw-esports.vercel.app/" target="_blank">https://nlw-esports-teal-theta.vercel.app/</a>
