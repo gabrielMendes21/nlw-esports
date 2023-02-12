@@ -46,7 +46,7 @@ export default function Ad(props) {
                         <h1 className="font-black mt-8 text-xl">Let's play!</h1>
                         <p className="text-zinc-400">Agora é só começar a jogar!</p>
 
-                        <span className="mt-5 mb-2">Acicione no discord</span>
+                        <span className="mt-5 mb-2">Adicione no discord</span>
                         <div className="bg-zinc-900 rounded py-3 px-10 flex items-center gap-5">
                             <span className="text-zinc-200 text-sm md:text-lg">{props.discord}</span>
                             <Copy onClick={() => {
