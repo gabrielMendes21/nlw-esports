@@ -3,12 +3,14 @@ import axios from 'axios'
 import { Check, GameController } from 'phosphor-react'
 import * as ToggleGroup from '@radix-ui/react-toggle-group'
 import * as Checkbox from '@radix-ui/react-checkbox'
+import Router from 'next/router'
 
 // Component function
 export function CreateAdModal(props) {
   const [ games, setGames ] = useState([])
   const [ weekDays, setWeekDays ] = useState([])
   const [ useVoiceChannel, setUseVoiceChannel ] = useState(false)
+  const [button, setButton] = useState("Encontrar duo")
 
   function fetchGamesAPI() {
     axios(`../api/games`)
@@ -24,6 +26,8 @@ export function CreateAdModal(props) {
     const data = Object.fromEntries(formData)
 
     try {
+      setButton("Carregando...")
+
       await axios.post(`../api/games/${data.game}/ads`, {
         userName: data.userName,
         yearsPlaying: Number(data.yearsPlaying),
@@ -35,10 +39,13 @@ export function CreateAdModal(props) {
       })
         .then(response => {
           alert(`${response.data}`)
+          Router.reload('/')
         })
     } catch(err) {
       console.error(err)
       alert("Erro ao criar anúncio :( Tente novamente mais tarde")
+    } finally {
+      setButton("Encontrar Duo")
     }
   }
 
@@ -220,7 +227,7 @@ export function CreateAdModal(props) {
             className="font-semibold flex justify-end items-center px-3 gap-3 rounded-lg bg-violet-500 hover:bg-violet-600 transition"
           >
             <GameController size={20} />
-            Encontrar duo
+            {button}
           </button>
         </footer>
       </form>
